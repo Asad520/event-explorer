@@ -75,9 +75,6 @@ export const EventListScreen: FC<EventListProps> = ({ navigation }) => {
     [navigation],
   );
 
-  // --- RENDERS ---
-
-  // Render Item for FlatList - wrapped in useCallback
   const renderItem = useCallback(
     ({ item }: ListRenderItemInfo<Event>) => (
       <EventCard event={item} onPress={() => handlePressEvent(item.id)} />

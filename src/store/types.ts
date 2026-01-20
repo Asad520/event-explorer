@@ -12,3 +12,8 @@ export type EventState = {
   toggleInterest: (eventId: string) => void;
   isInterested: (eventId: string) => boolean;
 };
+
+export type ThemeState = {
+  isDarkMode: boolean;
+  toggleTheme: () => void;
+};

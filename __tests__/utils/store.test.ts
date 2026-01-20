@@ -1,5 +1,7 @@
 // Tests for the zustand store using a mocked MMKV storage and mocked API
 
+import { STORE_KEYS } from '@src/utils/constants';
+
 const mockSet = jest.fn();
 const mockGetString = jest.fn();
 const mockRemove = jest.fn();
@@ -53,7 +55,7 @@ describe('useEventStore (zustand + MMKV)', () => {
     // Persist should call MMKV.set at least once with the storage key
     expect(mockSet).toHaveBeenCalled();
     const calledWithKey = mockSet.mock.calls.some(
-      call => call[0] === 'event-explorer-storage',
+      call => call[0] === STORE_KEYS.EVENT_STORE,
     );
     expect(calledWithKey).toBe(true);
   });

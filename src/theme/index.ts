@@ -32,15 +32,17 @@ export const lightTheme: DefaultTheme = {
   },
 };
 
-// Optional: Minimal dark theme structure (for bonus later)
 export const darkTheme: DefaultTheme = {
   ...lightTheme,
   colors: {
-    ...lightTheme.colors,
     background: '#121212',
     surface: '#1E1E1E',
     text: '#FFFFFF',
-    textSecondary: '#A0A0A0',
+    textSecondary: '#AAAAAA',
+    primary: '#0A84FF', // iOS Dark Blue
+    secondary: '#5AC8FA',
+    danger: '#FF453A',
     border: '#333333',
+    success: '#32D74B',
   },
 };

@@ -5,6 +5,7 @@ import { createMMKV } from 'react-native-mmkv';
 import { getEvents } from '@src/api/client';
 
 import { EventState } from './types';
+import { STORE_KEYS } from '@src/utils/constants';
 
 // 1. INITIALIZE MMKV
 const storage = createMMKV();
@@ -74,7 +75,7 @@ export const useEventStore = create<EventState>()(
       },
     }),
     {
-      name: 'event-explorer-storage', // Key name in MMKV
+      name: STORE_KEYS.EVENT_STORE, // Key name in MMKV
       storage: createJSONStorage(() => mmkvStorage), // Use our MMKV adapter
     },
   ),

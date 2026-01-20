@@ -76,7 +76,6 @@ export const EventDetailScreen: FC<EventDetailProps> = ({ route }) => {
         </Content>
       </ScrollContainer>
 
-      {/* Sticky Bottom Button */}
       <BottomBar>
         <InterestButton
           onPress={handleToggle}

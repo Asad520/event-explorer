@@ -75,7 +75,7 @@ export const RemoveButton = styled.TouchableOpacity`
 
 export const RemoveIcon = styled.Text`
   color: ${({ theme }) => theme.colors.textSecondary};
-  font-size: 12px;
+  font-size: 14px;
   font-weight: bold;
   margin-top: -2px; /* Visual center alignment */
 `;
