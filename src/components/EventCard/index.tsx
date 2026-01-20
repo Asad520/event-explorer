@@ -1,4 +1,4 @@
-import React from 'react';
+import { FC } from 'react';
 
 import { formatEventDate } from '@src/utils/date';
 
@@ -12,7 +12,7 @@ import {
   LocationText,
 } from './styles';
 
-export const EventCard: React.FC<EventCardProps> = ({ event, onPress }) => {
+export const EventCard: FC<EventCardProps> = ({ event, onPress }) => {
   return (
     <Card onPress={onPress} activeOpacity={0.7}>
       <Thumbnail source={{ uri: event.thumbnail }} />

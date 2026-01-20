@@ -1,9 +1,9 @@
-import React from 'react';
+import { FC } from 'react';
 
 import { SearchBarProps } from './types';
 import { Container, Input } from './styles';
 
-export const SearchBar: React.FC<SearchBarProps> = props => {
+export const SearchBar: FC<SearchBarProps> = props => {
   return (
     <Container>
       <Input

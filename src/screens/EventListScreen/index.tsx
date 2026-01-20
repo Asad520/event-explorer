@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useState, FC } from 'react';
 import { FlatList, ActivityIndicator, Text } from 'react-native';
 import { useTheme } from 'styled-components/native';
 
@@ -17,7 +17,7 @@ import {
   EmptyText,
 } from './styles';
 
-export const EventListScreen: React.FC<EventListProps> = ({ navigation }) => {
+export const EventListScreen: FC<EventListProps> = ({ navigation }) => {
   const theme = useTheme();
 
   // 1. Local State for Search
