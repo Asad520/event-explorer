@@ -5,6 +5,7 @@
     "types": [
       "jest"
     ],
+    /* Required for path aliases */
     "paths": {
       "@src/*": [
         "./src/*"
@@ -19,7 +20,8 @@
     /* Basic Options */
     "target": "ES6",
     "jsx": "react-jsx",
-    "module": "commonjs",
+    /* CHANGE THIS LINE: commonjs -> esnext */
+    "module": "esnext",
     "allowJs": true,
     "resolveJsonModule": true,
     "noEmit": true,
@@ -39,7 +41,7 @@
     "noFallthroughCasesInSwitch": true,
     /* Module Resolution Options */
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true,
+    "esModuleInterop": true
   },
   "include": [
     "**/*.ts",

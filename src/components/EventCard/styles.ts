@@ -7,6 +7,7 @@ export const Card = styled(TouchableOpacity)`
   margin: ${({ theme }) => theme.spacing.sm} ${({ theme }) => theme.spacing.md};
   padding: ${({ theme }) => theme.spacing.sm};
   border-radius: 12px;
+  position: relative; /* Essential for absolute positioning of RemoveButton */
 
   /* Shadow for iOS */
   shadow-color: #000;
@@ -29,6 +30,8 @@ export const Content = styled.View`
   flex: 1;
   margin-left: ${({ theme }) => theme.spacing.md};
   justify-content: center;
+  /* Add right padding so long titles don't overlap the X button */
+  padding-right: 24px;
 `;
 
 export const DateText = styled.Text`
@@ -49,4 +52,30 @@ export const Title = styled.Text`
 export const LocationText = styled.Text`
   color: ${({ theme }) => theme.colors.textSecondary};
   font-size: ${({ theme }) => theme.typography.caption};
+`;
+
+export const RemoveButton = styled.TouchableOpacity`
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  background-color: ${({ theme }) => theme.colors.background}; /* Subtle BG */
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+
+  /* Optional: Mild shadow to pop off the card */
+  shadow-color: #000;
+  shadow-opacity: 0.1;
+  shadow-radius: 2px;
+  elevation: 2;
+`;
+
+export const RemoveIcon = styled.Text`
+  color: ${({ theme }) => theme.colors.textSecondary};
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: -2px; /* Visual center alignment */
 `;
