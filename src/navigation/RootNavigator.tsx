@@ -17,7 +17,7 @@ export const RootNavigator = () => {
         headerStyle: { backgroundColor: theme.colors.primary },
         headerTintColor: '#FFFFFF', // White text on header
         headerTitleStyle: { fontWeight: 'bold' },
-        contentStyle: { backgroundColor: theme.colors.background }, // Global BG color
+        contentStyle: { backgroundColor: theme.colors.background },
       }}
     >
       {/* 1. The Tab Screen (Home) */}

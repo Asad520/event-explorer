@@ -11,6 +11,7 @@ export const EmptyContainer = styled.View`
   justify-content: center;
   align-items: center;
   padding: 40px;
+  background-color: ${({ theme }) => theme.colors.background};
 `;
 
 export const EmptyTitle = styled.Text`

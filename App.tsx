@@ -1,7 +1,7 @@
 import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { ThemeProvider } from 'styled-components/native';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 import { lightTheme, darkTheme } from '@src/theme';
 import { RootNavigator } from '@src/navigation/RootNavigator';
@@ -21,9 +21,11 @@ const App = () => {
               : lightTheme.colors.background
           }
         />
-        <NavigationContainer>
-          <RootNavigator />
-        </NavigationContainer>
+        <SafeAreaView edges={['top']} style={{ flex: 1 }}>
+          <NavigationContainer>
+            <RootNavigator />
+          </NavigationContainer>
+        </SafeAreaView>
       </ThemeProvider>
     </SafeAreaProvider>
   );
