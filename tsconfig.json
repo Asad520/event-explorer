@@ -1,8 +1,52 @@
 {
   "extends": "@react-native/typescript-config",
   "compilerOptions": {
-    "types": ["jest"],
+    /* Visit https://aka.ms/tsconfig to read more about this file */
+    "types": [
+      "jest"
+    ],
+    "paths": {
+      "@src/*": [
+        "./src/*"
+      ],
+      "@assets/*": [
+        "./assets/*"
+      ],
+      "@tests/*": [
+        "./__tests__/*"
+      ]
+    },
+    /* Basic Options */
+    "target": "ES6",
+    "jsx": "react-jsx",
+    "module": "commonjs",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    /* Strict Type-Checking Options */
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+    /* Additional Checks */
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": false,
+    "noFallthroughCasesInSwitch": true,
+    /* Module Resolution Options */
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
   },
-  "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["**/node_modules", "**/Pods"]
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "**/node_modules",
+    "**/Pods"
+  ]
 }

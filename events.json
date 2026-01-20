@@ -1,0 +1,74 @@
+{
+  "events": [
+    {
+      "id": "1",
+      "name": "React Native EU Conference",
+      "date": "2024-09-05T09:00:00Z",
+      "location": "Wrocław, Poland",
+      "thumbnail": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&q=80",
+      "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&q=80",
+      "description": "Join the largest React Native conference in Europe. Connect with developers, attend workshops, and learn about the latest trends in mobile development.",
+      "organizer": "Callstack"
+    },
+    {
+      "id": "2",
+      "name": "Jazz in the Park",
+      "date": "2024-07-20T18:00:00Z",
+      "location": "New York, NY",
+      "thumbnail": "https://images.unsplash.com/photo-1514525253440-b393452e8d26?w=400&q=80",
+      "image": "https://images.unsplash.com/photo-1514525253440-b393452e8d26?w=1200&q=80",
+      "description": "An evening of smooth jazz under the stars. Bring a blanket and enjoy performances by local and international artists in the heart of Central Park.",
+      "organizer": "NYC Arts Council"
+    },
+    {
+      "id": "3",
+      "name": "Culinary Masterclass: Italian",
+      "date": "2024-08-12T14:00:00Z",
+      "location": "Rome, Italy",
+      "thumbnail": "https://images.unsplash.com/photo-1556910103-1c02745a30bf?w=400&q=80",
+      "image": "https://images.unsplash.com/photo-1556910103-1c02745a30bf?w=1200&q=80",
+      "description": "Learn to make authentic pasta from scratch with Chef Giovanni. A hands-on experience suitable for beginners and food enthusiasts.",
+      "organizer": "Gustoso Cooking School"
+    },
+    {
+      "id": "4",
+      "name": "Global Tech Summit 2024",
+      "date": "2024-11-02T08:30:00Z",
+      "location": "San Francisco, CA",
+      "thumbnail": "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=400&q=80",
+      "image": "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=1200&q=80",
+      "description": "A deep dive into AI, Blockchain, and the future of software. Keynote speakers include industry leaders from Google, Microsoft, and OpenAI.",
+      "organizer": "TechFuture"
+    },
+    {
+      "id": "5",
+      "name": "Mountain Hiking Adventure",
+      "date": "2024-06-15T06:00:00Z",
+      "location": "Denver, CO",
+      "thumbnail": "https://images.unsplash.com/photo-1551632811-561732d1e306?w=400&q=80",
+      "image": "https://images.unsplash.com/photo-1551632811-561732d1e306?w=1200&q=80",
+      "description": "Experience the breathtaking views of the Rockies. This guided hike covers 10 miles of scenic trails. Water and snacks provided.",
+      "organizer": "Outdoor Life"
+    },
+    {
+      "id": "6",
+      "name": "Modern Art Exhibit Opening",
+      "date": "2024-10-10T19:00:00Z",
+      "location": "London, UK",
+      "thumbnail": "https://images.unsplash.com/photo-1518998053901-5348d3969105?w=400&q=80",
+      "image": "https://images.unsplash.com/photo-1518998053901-5348d3969105?w=1200&q=80",
+      "description": "Be the first to see the new collection 'Digital Dreams'. A fusion of traditional sculpture and projection mapping.",
+      "organizer": "Tate Modern"
+    },
+    {
+      "id": "7",
+      "name": "Marathon for Charity",
+      "date": "2024-05-25T07:00:00Z",
+      "location": "Berlin, Germany",
+      "thumbnail": "https://images.unsplash.com/photo-1552674605-5d2178b6e880?w=400&q=80",
+      "image": "https://images.unsplash.com/photo-1552674605-5d2178b6e880?w=1200&q=80",
+      "description": "Run for a cause! All proceeds go to local animal shelters. 5K, 10K, and full marathon options available.",
+      "organizer": "RunBerlin"
+    }
+  ]
+}
