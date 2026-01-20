@@ -1,8 +1,8 @@
 import { useTheme } from 'styled-components/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-import { EventListScreen } from '@src/screens/EventListScreen/EventListScreen';
-import { InterestedEventsScreen } from '@src/screens/InterestedEventsScreen/InterestedEventsScreen';
+import { EventListScreen } from '@src/screens/EventListScreen';
+import { InterestedEventsScreen } from '@src/screens/InterestedEventsScreen';
 
 import { MainTabParamList } from './types';
 

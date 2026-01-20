@@ -1,7 +1,7 @@
 import { useTheme } from 'styled-components/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { EventDetailScreen } from '@src/screens/EventDetailScreen/EventDetailScreen';
+import { EventDetailScreen } from '@src/screens/EventDetailScreen';
 
 import { MainTabs } from './MainTabs';
 import { RootStackParamList } from './types';
