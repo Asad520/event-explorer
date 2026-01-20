@@ -1,15 +1,14 @@
 import { Event } from '@src/api/types';
 
 export type EventState = {
-  // State
   events: Event[];
   interestedIds: string[];
   isLoading: boolean;
   error: string | null;
+  page: number;
+  hasMore: boolean;
 
-  // Actions
-  fetchEvents: () => Promise<void>;
+  fetchEvents: (refresh?: boolean) => Promise<void>;
   toggleInterest: (eventId: string) => void;
-  // Selector Helper (optional but useful)
   isInterested: (eventId: string) => boolean;
 };

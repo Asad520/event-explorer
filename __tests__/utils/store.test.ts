@@ -40,7 +40,8 @@ describe('useEventStore (zustand + MMKV)', () => {
 
   test('fetchEvents success stores events and persists to MMKV', async () => {
     const sample = [{ id: '1', title: 'Event 1' }];
-    mockGetEvents.mockResolvedValue(sample);
+    // The store expects getEvents to return an object: { data, next }
+    mockGetEvents.mockResolvedValue({ data: sample, next: null });
 
     const { useEventStore } = require('@src/store/useEventStore');
 

@@ -1,4 +1,4 @@
-import { Event } from './types';
+import { Event, EventsResponse } from './types';
 import { BASE_URL, wait } from './utils';
 
 /**
@@ -40,10 +40,11 @@ async function client<T>(
     throw error;
   }
 }
+// src/api/client.ts
 
-// 3. EXPORTED API FUNCTIONS
-export const getEvents = () => {
-  return client<Event[]>('events');
+export const getEvents = (page = 1) => {
+  // Json-server uses _page and _limit
+  return client<EventsResponse>(`events?_page=${page}`);
 };
 
 export const getEventById = (id: string) => {

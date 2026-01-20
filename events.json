@@ -2,12 +2,12 @@
   "events": [
     {
       "id": "1",
-      "name": "React Native EU Conference",
+      "name": "React Native EU",
       "date": "2024-09-05T09:00:00Z",
       "location": "Wrocław, Poland",
-      "thumbnail": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&q=80",
-      "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&q=80",
-      "description": "Join the largest React Native conference in Europe. Connect with developers, attend workshops, and learn about the latest trends in mobile development.",
+      "thumbnail": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400",
+      "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200",
+      "description": "Largest RN conference.",
       "organizer": "Callstack"
     },
     {
@@ -15,60 +15,210 @@
       "name": "Jazz in the Park",
       "date": "2024-07-20T18:00:00Z",
       "location": "New York, NY",
-      "thumbnail": "https://images.unsplash.com/photo-1514525253440-b393452e8d26?w=400&q=80",
-      "image": "https://images.unsplash.com/photo-1514525253440-b393452e8d26?w=1200&q=80",
-      "description": "An evening of smooth jazz under the stars. Bring a blanket and enjoy performances by local and international artists in the heart of Central Park.",
-      "organizer": "NYC Arts Council"
+      "thumbnail": "https://images.unsplash.com/photo-1514525253440-b393452e8d26?w=400",
+      "image": "https://images.unsplash.com/photo-1514525253440-b393452e8d26?w=1200",
+      "description": "Smooth jazz evening.",
+      "organizer": "NYC Arts"
     },
     {
       "id": "3",
-      "name": "Culinary Masterclass: Italian",
+      "name": "Italian Cooking",
       "date": "2024-08-12T14:00:00Z",
       "location": "Rome, Italy",
-      "thumbnail": "https://images.unsplash.com/photo-1556910103-1c02745a30bf?w=400&q=80",
-      "image": "https://images.unsplash.com/photo-1556910103-1c02745a30bf?w=1200&q=80",
-      "description": "Learn to make authentic pasta from scratch with Chef Giovanni. A hands-on experience suitable for beginners and food enthusiasts.",
-      "organizer": "Gustoso Cooking School"
+      "thumbnail": "https://images.unsplash.com/photo-1556910103-1c02745a30bf?w=400",
+      "image": "https://images.unsplash.com/photo-1556910103-1c02745a30bf?w=1200",
+      "description": "Pasta from scratch.",
+      "organizer": "Gustoso"
     },
     {
       "id": "4",
-      "name": "Global Tech Summit 2024",
+      "name": "Tech Summit",
       "date": "2024-11-02T08:30:00Z",
       "location": "San Francisco, CA",
-      "thumbnail": "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=400&q=80",
-      "image": "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=1200&q=80",
-      "description": "A deep dive into AI, Blockchain, and the future of software. Keynote speakers include industry leaders from Google, Microsoft, and OpenAI.",
+      "thumbnail": "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=400",
+      "image": "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=1200",
+      "description": "AI & Future tech.",
       "organizer": "TechFuture"
     },
     {
       "id": "5",
-      "name": "Mountain Hiking Adventure",
+      "name": "Mountain Hiking",
       "date": "2024-06-15T06:00:00Z",
       "location": "Denver, CO",
-      "thumbnail": "https://images.unsplash.com/photo-1551632811-561732d1e306?w=400&q=80",
-      "image": "https://images.unsplash.com/photo-1551632811-561732d1e306?w=1200&q=80",
-      "description": "Experience the breathtaking views of the Rockies. This guided hike covers 10 miles of scenic trails. Water and snacks provided.",
+      "thumbnail": "https://images.unsplash.com/photo-1551632811-561732d1e306?w=400",
+      "image": "https://images.unsplash.com/photo-1551632811-561732d1e306?w=1200",
+      "description": "Scenic trails.",
       "organizer": "Outdoor Life"
     },
     {
       "id": "6",
-      "name": "Modern Art Exhibit Opening",
+      "name": "Art Exhibit",
       "date": "2024-10-10T19:00:00Z",
       "location": "London, UK",
-      "thumbnail": "https://images.unsplash.com/photo-1518998053901-5348d3969105?w=400&q=80",
-      "image": "https://images.unsplash.com/photo-1518998053901-5348d3969105?w=1200&q=80",
-      "description": "Be the first to see the new collection 'Digital Dreams'. A fusion of traditional sculpture and projection mapping.",
-      "organizer": "Tate Modern"
+      "thumbnail": "https://images.unsplash.com/photo-1518998053901-5348d3969105?w=400",
+      "image": "https://images.unsplash.com/photo-1518998053901-5348d3969105?w=1200",
+      "description": "Modern art collection.",
+      "organizer": "Tate"
     },
     {
       "id": "7",
-      "name": "Marathon for Charity",
+      "name": "Charity Run",
       "date": "2024-05-25T07:00:00Z",
       "location": "Berlin, Germany",
-      "thumbnail": "https://images.unsplash.com/photo-1552674605-5d2178b6e880?w=400&q=80",
-      "image": "https://images.unsplash.com/photo-1552674605-5d2178b6e880?w=1200&q=80",
-      "description": "Run for a cause! All proceeds go to local animal shelters. 5K, 10K, and full marathon options available.",
+      "thumbnail": "https://images.unsplash.com/photo-1552674605-5d2178b6e880?w=400",
+      "image": "https://images.unsplash.com/photo-1552674605-5d2178b6e880?w=1200",
+      "description": "Run for a cause.",
       "organizer": "RunBerlin"
+    },
+    {
+      "id": "8",
+      "name": "Gaming Expo",
+      "date": "2024-12-05T10:00:00Z",
+      "location": "Tokyo, Japan",
+      "thumbnail": "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400",
+      "image": "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=1200",
+      "description": "Latest video games.",
+      "organizer": "GameWorld"
+    },
+    {
+      "id": "9",
+      "name": "Wine Tasting",
+      "date": "2024-09-20T16:00:00Z",
+      "location": "Paris, France",
+      "thumbnail": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=400",
+      "image": "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=1200",
+      "description": "Fine wines.",
+      "organizer": "VinFr"
+    },
+    {
+      "id": "10",
+      "name": "Startup Pitch",
+      "date": "2024-08-05T14:00:00Z",
+      "location": "Austin, TX",
+      "thumbnail": "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400",
+      "image": "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1200",
+      "description": "Pitch your idea.",
+      "organizer": "StartHub"
+    },
+    {
+      "id": "11",
+      "name": "Yoga Retreat",
+      "date": "2024-06-01T08:00:00Z",
+      "location": "Bali, Indonesia",
+      "thumbnail": "https://images.unsplash.com/photo-1544367563-12123d8959bd?w=400",
+      "image": "https://images.unsplash.com/photo-1544367563-12123d8959bd?w=1200",
+      "description": "Relax and meditate.",
+      "organizer": "ZenLife"
+    },
+    {
+      "id": "12",
+      "name": "Film Festival",
+      "date": "2024-11-15T18:00:00Z",
+      "location": "Cannes, France",
+      "thumbnail": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=400",
+      "image": "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=1200",
+      "description": "Indie films.",
+      "organizer": "CannesIndie"
+    },
+    {
+      "id": "13",
+      "name": "Photography Workshop",
+      "date": "2024-10-05T09:00:00Z",
+      "location": "Iceland",
+      "thumbnail": "https://images.unsplash.com/photo-1554048612-387768052bf7?w=400",
+      "image": "https://images.unsplash.com/photo-1554048612-387768052bf7?w=1200",
+      "description": "Capture the northern lights.",
+      "organizer": "PhotoPro"
+    },
+    {
+      "id": "14",
+      "name": "Book Fair",
+      "date": "2024-09-12T10:00:00Z",
+      "location": "Frankfurt, Germany",
+      "thumbnail": "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=400",
+      "image": "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=1200",
+      "description": "World's largest book fair.",
+      "organizer": "FrankfurtMesse"
+    },
+    {
+      "id": "15",
+      "name": "EDM Festival",
+      "date": "2024-07-30T20:00:00Z",
+      "location": "Boom, Belgium",
+      "thumbnail": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400",
+      "image": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1200",
+      "description": "Electronic dance music.",
+      "organizer": "Tomorrowland"
+    },
+    {
+      "id": "16",
+      "name": "Science Fair",
+      "date": "2024-05-10T09:00:00Z",
+      "location": "Boston, MA",
+      "thumbnail": "https://images.unsplash.com/photo-1564325724739-bae0bd08762c?w=400",
+      "image": "https://images.unsplash.com/photo-1564325724739-bae0bd08762c?w=1200",
+      "description": "Innovation showcase.",
+      "organizer": "MIT"
+    },
+    {
+      "id": "17",
+      "name": "Fashion Week",
+      "date": "2024-09-25T19:00:00Z",
+      "location": "Milan, Italy",
+      "thumbnail": "https://images.unsplash.com/photo-1537832816519-689ad163238b?w=400",
+      "image": "https://images.unsplash.com/photo-1537832816519-689ad163238b?w=1200",
+      "description": "High fashion runway.",
+      "organizer": "MilanFashion"
+    },
+    {
+      "id": "18",
+      "name": "Coffee Expo",
+      "date": "2024-11-20T10:00:00Z",
+      "location": "Seattle, WA",
+      "thumbnail": "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=400",
+      "image": "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=1200",
+      "description": "Brewing techniques.",
+      "organizer": "BeanCon"
+    },
+    {
+      "id": "19",
+      "name": "Space Symposium",
+      "date": "2024-04-15T09:00:00Z",
+      "location": "Colorado Springs, CO",
+      "thumbnail": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=400",
+      "image": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1200",
+      "description": "Space industry meetup.",
+      "organizer": "SpaceFoundation"
+    },
+    {
+      "id": "20",
+      "name": "Halloween Party",
+      "date": "2024-10-31T21:00:00Z",
+      "location": "Salem, MA",
+      "thumbnail": "https://images.unsplash.com/photo-1508361001413-7a9dca21d08a?w=400",
+      "image": "https://images.unsplash.com/photo-1508361001413-7a9dca21d08a?w=1200",
+      "description": "Spooky celebration.",
+      "organizer": "WitchCity"
+    },
+    {
+      "id": "21",
+      "name": "EDM Festival",
+      "date": "2024-07-30T20:00:00Z",
+      "location": "Boom, Belgium",
+      "thumbnail": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=400",
+      "image": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=1200",
+      "description": "Electronic dance music.",
+      "organizer": "Tomorrowland"
+    },
+    {
+      "id": "22",
+      "name": "Science Fair",
+      "date": "2024-05-10T09:00:00Z",
+      "location": "Boston, MA",
+      "thumbnail": "https://images.unsplash.com/photo-1564325724739-bae0bd08762c?w=400",
+      "image": "https://images.unsplash.com/photo-1564325724739-bae0bd08762c?w=1200",
+      "description": "Innovation showcase.",
+      "organizer": "MIT"
     }
   ]
 }

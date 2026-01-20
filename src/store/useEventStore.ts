@@ -11,7 +11,7 @@ const storage = createMMKV();
 
 // 2. CREATE ZUSTAND STORAGE ADAPTER
 // MMKV is synchronous, which is faster and easier than AsyncStorage
-const mmkvStorage: StateStorage = {
+export const mmkvStorage: StateStorage = {
   setItem: (name, value) => storage.set(name, value),
   getItem: name => storage.getString(name) ?? null,
   removeItem: name => storage.remove(name),
@@ -21,26 +21,34 @@ const mmkvStorage: StateStorage = {
 export const useEventStore = create<EventState>()(
   persist(
     (set, get) => ({
-      // Initial State
       events: [],
       interestedIds: [],
       isLoading: false,
       error: null,
+      page: 1,
+      hasMore: true,
 
-      // Actions
-      fetchEvents: async () => {
-        // If we already have data (rehydrated from MMKV), we silently update in background
-        // or show a loader if it's the very first load.
-        // For this assignment, let's show the loader to prove the network request happens.
+      fetchEvents: async (refresh = false) => {
+        const { page, events, hasMore, isLoading } = get();
+
+        // Prevent fetching if already loading or no more data (unless refreshing)
+        if (isLoading || (!hasMore && !refresh)) return;
+
         set({ isLoading: true, error: null });
 
         try {
-          const data = await getEvents();
-          set({ events: data, isLoading: false });
+          const nextPage = refresh ? 1 : page;
+
+          const { data: newEvents, next } = await getEvents(nextPage);
+
+          set({
+            // If refresh, replace all. If not, append new to old.
+            events: refresh ? newEvents : [...events, ...newEvents],
+            page: nextPage + 1,
+            hasMore: !!next,
+            isLoading: false,
+          });
         } catch (err) {
-          // ERROR HANDLING
-          // If the API fails, we keep the existing 'events' (offline support).
-          // We just update the error message.
           set({
             isLoading: false,
             error: (err as Error).message || 'Failed to fetch events',

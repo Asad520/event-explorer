@@ -9,7 +9,15 @@ export type Event = {
   organizer: string;
 };
 
-export type ApiResponse<T> = {
-  data: T;
-  status: number;
+export type PaginatedResult<T> = {
+  first: number;
+  prev: number | null;
+  next: number | null;
+  last: number;
+  pages: number;
+  items: number;
+  data: T[];
 };
+
+// Specific type alias for your API calls
+export type EventsResponse = PaginatedResult<Event>;
