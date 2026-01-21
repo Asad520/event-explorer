@@ -1,3 +1,4 @@
+import { Appearance } from 'react-native';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 import { createMMKV } from 'react-native-mmkv';
@@ -11,7 +12,9 @@ const storage = createMMKV();
 export const useThemeStore = create<ThemeState>()(
   persist(
     set => ({
-      isDarkMode: false, // Default to Light
+      // 2. Check system preference on initialization
+      isDarkMode: Appearance.getColorScheme() === 'dark',
+
       toggleTheme: () => set(state => ({ isDarkMode: !state.isDarkMode })),
     }),
     {

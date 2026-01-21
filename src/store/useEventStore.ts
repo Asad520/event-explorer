@@ -26,17 +26,22 @@ export const useEventStore = create<EventState>()(
       events: [],
       savedEvents: [],
       isLoading: false,
+      isRefreshing: false,
       error: null,
       page: 1,
       hasMore: true,
 
       fetchEvents: async (refresh = false) => {
-        const { page, events, hasMore, isLoading } = get();
+        const { page, events, hasMore, isLoading, isRefreshing } = get();
 
         // Prevent fetching if already loading or no more data (unless refreshing)
-        if (isLoading || (!hasMore && !refresh)) return;
+        if (isLoading || isRefreshing || (!hasMore && !refresh)) return;
 
-        set({ isLoading: true, error: null });
+        if (refresh) {
+          set({ isRefreshing: true, error: null });
+        } else {
+          set({ isLoading: true, error: null });
+        }
 
         try {
           const nextPage = refresh ? 1 : page;
@@ -44,15 +49,16 @@ export const useEventStore = create<EventState>()(
           const { data: newEvents, next } = await getEvents(nextPage);
 
           set({
-            // If refresh, replace all. If not, append new to old.
             events: refresh ? newEvents : [...events, ...newEvents],
             page: nextPage + 1,
             hasMore: !!next,
             isLoading: false,
+            isRefreshing: false,
           });
         } catch (err) {
           set({
             isLoading: false,
+            isRefreshing: false,
             error: (err as Error).message || 'Failed to fetch events',
           });
         }

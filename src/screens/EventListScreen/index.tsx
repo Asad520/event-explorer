@@ -27,7 +27,8 @@ export const EventListScreen: FC<EventListProps> = ({ navigation }) => {
 
   const [searchText, setSearchText] = useState('');
 
-  const { events, isLoading, error, fetchEvents, hasMore } = useEventStore();
+  const { events, isLoading, error, fetchEvents, hasMore, isRefreshing } =
+    useEventStore();
 
   useEffect(() => {
     fetchEvents(true);
@@ -50,11 +51,10 @@ export const EventListScreen: FC<EventListProps> = ({ navigation }) => {
 
   const handleLoadMore = useCallback(() => {
     // Only load more if we are NOT searching (local filtering breaks pagination logic)
-    if (!searchText && hasMore && !isLoading) {
-      console.log('Loading more events...');
-      fetchEvents(false); // false = load next page
+    if (!searchText && hasMore) {
+      fetchEvents(false);
     }
-  }, [searchText, hasMore, isLoading, fetchEvents]);
+  }, [searchText, hasMore, fetchEvents]);
 
   const renderFooter = useCallback(() => {
     if (!isLoading) return null;
@@ -126,11 +126,9 @@ export const EventListScreen: FC<EventListProps> = ({ navigation }) => {
         keyExtractor={keyExtractor}
         contentContainerStyle={{ paddingVertical: 10 }}
         // Refreshing Logic
-        refreshing={isLoading}
-        onRefresh={handleRefresh}
         refreshControl={
           <RefreshControl
-            refreshing={isLoading}
+            refreshing={isRefreshing}
             onRefresh={handleRefresh}
             tintColor={theme.colors.primary}
             colors={[theme.colors.primary]}

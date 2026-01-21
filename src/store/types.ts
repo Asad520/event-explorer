@@ -4,6 +4,7 @@ export type EventState = {
   events: Event[];
   savedEvents: Event[];
   isLoading: boolean;
+  isRefreshing: boolean;
   error: string | null;
   page: number;
   hasMore: boolean;
