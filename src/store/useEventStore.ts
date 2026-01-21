@@ -3,9 +3,10 @@ import { createJSONStorage, persist, StateStorage } from 'zustand/middleware';
 import { createMMKV } from 'react-native-mmkv';
 
 import { getEvents } from '@src/api/client';
+import { STORE_KEYS } from '@src/utils/constants';
+import { Event } from '@src/api/types';
 
 import { EventState } from './types';
-import { STORE_KEYS } from '@src/utils/constants';
 
 // 1. INITIALIZE MMKV
 const storage = createMMKV();
@@ -23,7 +24,7 @@ export const useEventStore = create<EventState>()(
   persist(
     (set, get) => ({
       events: [],
-      interestedIds: [],
+      savedEvents: [],
       isLoading: false,
       error: null,
       page: 1,
@@ -57,21 +58,23 @@ export const useEventStore = create<EventState>()(
         }
       },
 
-      toggleInterest: (eventId: string) => {
-        const currentIds = get().interestedIds;
-        const exists = currentIds.includes(eventId);
+      toggleInterest: (event: Event) => {
+        const { savedEvents } = get();
+        const exists = savedEvents.some(e => e.id === event.id);
 
         if (exists) {
-          // Remove ID
-          set({ interestedIds: currentIds.filter(id => id !== eventId) });
+          set({
+            savedEvents: savedEvents.filter(e => e.id !== event.id),
+          });
         } else {
-          // Add ID
-          set({ interestedIds: [...currentIds, eventId] });
+          set({
+            savedEvents: [...savedEvents, event],
+          });
         }
       },
 
       isInterested: (eventId: string) => {
-        return get().interestedIds.includes(eventId);
+        return get().savedEvents.some(e => e.id === eventId);
       },
     }),
     {

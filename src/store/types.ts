@@ -2,14 +2,14 @@ import { Event } from '@src/api/types';
 
 export type EventState = {
   events: Event[];
-  interestedIds: string[];
+  savedEvents: Event[];
   isLoading: boolean;
   error: string | null;
   page: number;
   hasMore: boolean;
 
   fetchEvents: (refresh?: boolean) => Promise<void>;
-  toggleInterest: (eventId: string) => void;
+  toggleInterest: (event: Event) => void;
   isInterested: (eventId: string) => boolean;
 };
 

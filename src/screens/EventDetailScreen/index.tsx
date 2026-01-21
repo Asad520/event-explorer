@@ -22,18 +22,16 @@ import {
 export const EventDetailScreen: FC<EventDetailProps> = ({ route }) => {
   const { eventId } = route.params;
 
-  // 1. Get Store Data
-  const { events, toggleInterest, interestedIds } = useEventStore();
+  const { events, savedEvents, toggleInterest, isInterested } = useEventStore();
 
-  // 2. Find the specific event
-  // We look it up in the store to ensure we have the latest data
   const event = useMemo(
-    () => events.find(e => e.id === eventId),
-    [events, eventId],
+    () =>
+      events.find(e => e.id === eventId) ||
+      savedEvents.find(e => e.id === eventId),
+    [events, savedEvents, eventId],
   );
 
-  // 3. Derived State
-  const isInterested = interestedIds.includes(eventId);
+  const isInterestedEvent = isInterested(eventId);
 
   // Handle "Event Not Found" edge case
   if (!event) {
@@ -44,13 +42,13 @@ export const EventDetailScreen: FC<EventDetailProps> = ({ route }) => {
     );
   }
 
-  // 4. Interaction Handler
   const handleToggle = () => {
-    toggleInterest(eventId);
-    // Optional: Visual feedback
-    if (!isInterested) {
-      // We assume simple alerts for now, can be replaced with Toasts
-      Alert.alert('Saved!', 'Event added to your interested list.');
+    if (event) {
+      toggleInterest(event);
+
+      if (!isInterestedEvent) {
+        Alert.alert('Saved!', 'Event added to your interested list.');
+      }
     }
   };
 
@@ -79,11 +77,11 @@ export const EventDetailScreen: FC<EventDetailProps> = ({ route }) => {
       <BottomBar>
         <InterestButton
           onPress={handleToggle}
-          isInterested={isInterested}
+          isInterested={isInterestedEvent}
           activeOpacity={0.8}
         >
-          <ButtonText isInterested={isInterested}>
-            {isInterested ? '✓ Interested' : 'Mark as Interested'}
+          <ButtonText isInterested={isInterestedEvent}>
+            {isInterestedEvent ? '✓ Interested' : 'Mark as Interested'}
           </ButtonText>
         </InterestButton>
       </BottomBar>

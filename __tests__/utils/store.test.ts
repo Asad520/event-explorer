@@ -35,13 +35,13 @@ describe('useEventStore (zustand + MMKV)', () => {
 
     const state = useEventStore.getState();
     expect(state.events).toEqual([]);
-    expect(state.interestedIds).toEqual([]);
+    expect(state.savedEvents).toEqual([]);
     expect(state.isLoading).toBe(false);
     expect(state.error).toBeNull();
   });
 
   test('fetchEvents success stores events and persists to MMKV', async () => {
-    const sample = [{ id: '1', title: 'Event 1' }];
+    const sample = [{ id: '1', name: 'Event 1', location: 'Location 1' }];
     // The store expects getEvents to return an object: { data, next }
     mockGetEvents.mockResolvedValue({ data: sample, next: null });
 
@@ -77,24 +77,59 @@ describe('useEventStore (zustand + MMKV)', () => {
     const { useEventStore } = require('@src/store/useEventStore');
 
     const { toggleInterest, isInterested } = useEventStore.getState();
+    const sampleEvent = {
+      id: 'a',
+      name: 'Test Event',
+      location: 'Test Location',
+    };
 
     expect(isInterested('a')).toBe(false);
-    toggleInterest('a');
-    expect(useEventStore.getState().interestedIds).toContain('a');
+    toggleInterest(sampleEvent);
+    expect(useEventStore.getState().savedEvents).toContainEqual(sampleEvent);
     expect(isInterested('a')).toBe(true);
 
-    toggleInterest('a');
+    toggleInterest(sampleEvent);
     expect(isInterested('a')).toBe(false);
+    expect(useEventStore.getState().savedEvents).toEqual([]);
 
     // Ensure persistence was attempted
     expect(mockSet).toHaveBeenCalled();
   });
 
+  test('toggleInterest handles multiple events correctly', () => {
+    const { useEventStore } = require('@src/store/useEventStore');
+
+    const { toggleInterest, isInterested } = useEventStore.getState();
+    const event1 = { id: '1', name: 'Event 1', location: 'Location 1' };
+    const event2 = { id: '2', name: 'Event 2', location: 'Location 2' };
+
+    // Add both events
+    toggleInterest(event1);
+    toggleInterest(event2);
+
+    const state = useEventStore.getState();
+    expect(state.savedEvents).toHaveLength(2);
+    expect(isInterested('1')).toBe(true);
+    expect(isInterested('2')).toBe(true);
+
+    // Remove first event, second should remain
+    toggleInterest(event1);
+    expect(isInterested('1')).toBe(false);
+    expect(isInterested('2')).toBe(true);
+    expect(useEventStore.getState().savedEvents).toHaveLength(1);
+    expect(useEventStore.getState().savedEvents[0]).toEqual(event2);
+  });
+
   test('rehydrates state from MMKV getString', () => {
+    const storedEvent = {
+      id: 'x',
+      name: 'Stored Event',
+      location: 'Test Location',
+    };
     const stored = JSON.stringify({
       state: {
-        events: [{ id: 'x', title: 'Stored Event' }],
-        interestedIds: ['x'],
+        events: [storedEvent],
+        savedEvents: [storedEvent],
         isLoading: false,
         error: null,
       },
@@ -105,7 +140,7 @@ describe('useEventStore (zustand + MMKV)', () => {
     const { useEventStore } = require('@src/store/useEventStore');
 
     const state = useEventStore.getState();
-    expect(state.events).toEqual([{ id: 'x', title: 'Stored Event' }]);
-    expect(state.interestedIds).toEqual(['x']);
+    expect(state.events).toEqual([storedEvent]);
+    expect(state.savedEvents).toEqual([storedEvent]);
   });
 });

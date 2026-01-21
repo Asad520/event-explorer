@@ -1,5 +1,4 @@
-// src/screens/InterestedEventsScreen.tsx
-import React, { useMemo, useCallback } from 'react';
+import { FC, useCallback, useMemo } from 'react';
 import { FlatList, ListRenderItemInfo } from 'react-native';
 
 // Imports
@@ -17,18 +16,14 @@ import {
   ButtonText,
 } from './styles';
 
-export const InterestedEventsScreen: React.FC<InterestedEventsProps> = ({
+export const InterestedEventsScreen: FC<InterestedEventsProps> = ({
   navigation,
 }) => {
-  // 1. Get Global State (including toggleInterest)
-  const { events, interestedIds, toggleInterest } = useEventStore();
+  // 1. Get Global State
+  // We now pull `savedEvents` directly. No filtering needed!
+  const { savedEvents, toggleInterest } = useEventStore();
 
-  // 2. Filter Logic - memoized
-  const interestedEvents = useMemo(() => {
-    return events.filter(event => interestedIds.includes(event.id));
-  }, [events, interestedIds]);
-
-  // 3. Handlers - all memoized with useCallback
+  // 2. Handlers
   const handlePressEvent = useCallback(
     (eventId: string) => {
       navigation.navigate('EventDetail', { eventId });
@@ -40,33 +35,30 @@ export const InterestedEventsScreen: React.FC<InterestedEventsProps> = ({
     navigation.jumpTo('EventList');
   }, [navigation]);
 
-  // Logic to remove event - memoized
   const handleRemoveEvent = useCallback(
-    (eventId: string) => {
-      toggleInterest(eventId); // Calling this on an existing ID removes it
+    (event: Event) => {
+      toggleInterest(event);
     },
     [toggleInterest],
   );
 
-  // FlatList optimization: memoized renderItem
   const renderItem = useCallback(
     ({ item }: ListRenderItemInfo<Event>) => (
       <EventCard
         event={item}
         onPress={() => handlePressEvent(item.id)}
-        onRemove={() => handleRemoveEvent(item.id)}
+        onRemove={() => handleRemoveEvent(item)}
       />
     ),
     [handlePressEvent, handleRemoveEvent],
   );
 
-  // FlatList optimization: memoized keyExtractor
   const keyExtractor = useCallback((item: Event) => item.id, []);
 
-  // FlatList optimization: memoized content container style
   const contentContainerStyle = useMemo(() => ({ paddingBottom: 20 }), []);
 
-  if (interestedEvents.length === 0) {
+  // 4. Empty State
+  if (savedEvents.length === 0) {
     return (
       <EmptyContainer>
         <EmptyTitle>No saved events</EmptyTitle>
@@ -80,10 +72,11 @@ export const InterestedEventsScreen: React.FC<InterestedEventsProps> = ({
     );
   }
 
+  // 5. Main Render
   return (
     <Container>
       <FlatList
-        data={interestedEvents}
+        data={savedEvents} // Use the store array directly
         keyExtractor={keyExtractor}
         renderItem={renderItem}
         contentContainerStyle={contentContainerStyle}

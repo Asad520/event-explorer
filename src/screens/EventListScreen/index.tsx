@@ -29,10 +29,7 @@ export const EventListScreen: FC<EventListProps> = ({ navigation }) => {
   const { events, isLoading, error, fetchEvents, hasMore } = useEventStore();
 
   useEffect(() => {
-    // Only fetch if empty to avoid double fetch on re-mount
-    if (events.length === 0) {
-      fetchEvents(true); // true = refresh (page 1)
-    }
+    fetchEvents(true); // true = refresh (page 1)
   }, []);
 
   // We use useMemo so we don't re-filter on every tiny re-render, only when data changes
@@ -54,6 +51,7 @@ export const EventListScreen: FC<EventListProps> = ({ navigation }) => {
   const handleLoadMore = useCallback(() => {
     // Only load more if we are NOT searching (local filtering breaks pagination logic)
     if (!searchText && hasMore && !isLoading) {
+      console.log('Loading more events...');
       fetchEvents(false); // false = load next page
     }
   }, [searchText, hasMore, isLoading, fetchEvents]);
