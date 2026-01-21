@@ -4,6 +4,7 @@ import {
   ActivityIndicator,
   Text,
   ListRenderItemInfo,
+  RefreshControl,
 } from 'react-native';
 import { useTheme } from 'styled-components/native';
 
@@ -29,10 +30,9 @@ export const EventListScreen: FC<EventListProps> = ({ navigation }) => {
   const { events, isLoading, error, fetchEvents, hasMore } = useEventStore();
 
   useEffect(() => {
-    fetchEvents(true); // true = refresh (page 1)
+    fetchEvents(true);
   }, []);
 
-  // We use useMemo so we don't re-filter on every tiny re-render, only when data changes
   const filteredEvents = useMemo(() => {
     if (!searchText) return events;
 
@@ -118,18 +118,25 @@ export const EventListScreen: FC<EventListProps> = ({ navigation }) => {
 
   return (
     <Container>
-      {/* Search Bar Header */}
       <SearchBar value={searchText} onChangeText={setSearchText} />
 
-      {/* Main List */}
       <FlatList
         data={filteredEvents}
         renderItem={renderItem}
         keyExtractor={keyExtractor}
         contentContainerStyle={{ paddingVertical: 10 }}
         // Refreshing Logic
-        refreshing={isLoading && events.length === 0} // Only show top spinner on full reload
+        refreshing={isLoading}
         onRefresh={handleRefresh}
+        refreshControl={
+          <RefreshControl
+            refreshing={isLoading}
+            onRefresh={handleRefresh}
+            tintColor={theme.colors.primary}
+            colors={[theme.colors.primary]}
+            progressBackgroundColor={theme.colors.surface}
+          />
+        }
         // Pagination Logic
         onEndReached={handleLoadMore}
         onEndReachedThreshold={0.5} // Trigger when 50% from bottom

@@ -1,11 +1,13 @@
 import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { ThemeProvider } from 'styled-components/native';
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { lightTheme, darkTheme } from '@src/theme';
-import { RootNavigator } from '@src/navigation/RootNavigator';
 import { useThemeStore } from '@src/store/useThemeStore';
+import { RootNavigator } from '@src/navigation/RootNavigator';
+
+import { SafeWrapper } from './styles';
 
 const App = () => {
   const { isDarkMode } = useThemeStore();
@@ -21,11 +23,11 @@ const App = () => {
               : lightTheme.colors.background
           }
         />
-        <SafeAreaView edges={['top']} style={{ flex: 1 }}>
+        <SafeWrapper>
           <NavigationContainer>
             <RootNavigator />
           </NavigationContainer>
-        </SafeAreaView>
+        </SafeWrapper>
       </ThemeProvider>
     </SafeAreaProvider>
   );
